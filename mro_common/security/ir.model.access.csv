@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+operation_type_employee,account.operation_type - user,model_mro_operation_type,base.group_user,1,1,1,1
+operation_type_all,account.operation_type - all,model_mro_operation_type,,0,0,0,0
+operation_maintenance_type_employee,mro.operation_maintenance_type - user,model_mro_operation_maintenance_type,base.group_user,1,1,1,1
+operation_maintenance_type_all,mro.operation_maintenance_type - all,model_mro_operation_maintenance_type,,1,0,0,0
