@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<menuitem
+    id="mro_menu"
+    name="MRO"
+    sequence="11"
+    />
+
+<menuitem
+    id="mro_operation_menu"
+    name="Operation"
+    sequence="1"
+    parent="mro_menu"
+    />
+
+<menuitem
+    id="mro_maintenance_menu"
+    name="Maintenance"
+    sequence="2"
+    parent="mro_menu"
+    />
+
+<menuitem
+    id="mro_object_menu"
+    name="Object"
+    sequence="3"
+    parent="mro_menu"
+    />
+
+<menuitem
+    id="mro_report_menu"
+    name="Report"
+    sequence="98"
+    parent="mro_menu"
+    />
+
+<menuitem
+    id="mro_configuration_menu"
+    name="Configuration"
+    sequence="99"
+    parent="mro_menu"
+    />
+
+
+</data>
+</openerp>
