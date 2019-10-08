@@ -123,7 +123,7 @@ class MroOperationMaintenanceCommon(models.AbstractModel):
         },
     )
     scheduled_date_end = fields.Datetime(
-        string="Schedule Date Start",
+        string="Schedule Date End",
         required=True,
         readonly=True,
         states={
@@ -143,7 +143,7 @@ class MroOperationMaintenanceCommon(models.AbstractModel):
         },
     )
     real_date_end = fields.Datetime(
-        string="Real Date Start",
+        string="Real Date End",
         required=False,
         readonly=True,
         states={
@@ -223,6 +223,38 @@ class MroOperationMaintenanceCommon(models.AbstractModel):
         comodel_name="res.users",
         readonly=True,
     )
+
+    @api.constrains(
+        "scheduled_date_start",
+        "scheduled_date_end"
+    )
+    def _check_schedule_date(self):
+        strWarning = _(
+            "Schedule Date Start must be "
+            "greater than Schedule Date End")
+        scheduled_date_start =\
+            self.scheduled_date_start
+        scheduled_date_end =\
+            self.scheduled_date_end
+        if scheduled_date_start and scheduled_date_end:
+            if scheduled_date_start > scheduled_date_end:
+                raise UserError(strWarning)
+
+    @api.constrains(
+        "real_date_start",
+        "real_date_end"
+    )
+    def _check_real_date(self):
+        strWarning = _(
+            "Real Date Start must be "
+            "greater than Real Date End")
+        real_date_start =\
+            self.real_date_start
+        real_date_end =\
+            self.real_date_end
+        if real_date_start and real_date_end:
+            if real_date_start > real_date_end:
+                raise UserError(strWarning)
 
     @api.multi
     def action_confirm(self):

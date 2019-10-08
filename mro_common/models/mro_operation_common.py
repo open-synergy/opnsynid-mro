@@ -122,7 +122,7 @@ class MroOperationCommon(models.AbstractModel):
         },
     )
     date_end = fields.Datetime(
-        string="Schedule Date Start",
+        string="Schedule Date End",
         required=True,
         readonly=True,
         states={
@@ -242,6 +242,18 @@ class MroOperationCommon(models.AbstractModel):
         comodel_name="res.users",
         readonly=True,
     )
+
+    @api.constrains(
+        "date_start",
+        "date_end"
+    )
+    def _check_schedule_date(self):
+        strWarning = _(
+            "Schedule Date Start must be "
+            "greater than Schedule Date End")
+        if self.date_start and self.date_end:
+            if self.date_start > self.date_end:
+                raise UserError(strWarning)
 
     @api.multi
     def action_confirm(self):

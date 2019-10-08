@@ -146,5 +146,37 @@
     </field>
 </record>
 
+<record id="mro_operation_maintenance_common_view_kanban" model="ir.ui.view">
+    <field name="name">mro.operation_maintenance_common.kanban</field>
+    <field name="model">mro.operation_maintenance_common</field>
+    <field name="arch" type="xml">
+        <kanban edit="false" quick_create="false" default_group_by="state" default_order="state">
+            <field name="name"/>
+            <field name="mro_object_id"/>
+            <field name="type_id"/>
+            <field name="scheduled_date_start"/>
+            <field name="scheduled_date_end"/>
+            <field name="state"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                        <div class="oe_module_desc">
+                            <h3 class="text-center"><strong><field name="name"/></strong></h3>
+                            <strong>MRO Object:</strong> <field name="mro_object_id"/><br/>
+                            <strong>Type:</strong> <field name="type_id"/><br/>
+                            <strong>Schedule Date Start:</strong> <field name="scheduled_date_start"/><br/>
+                            <strong>Schedule Date End:</strong> <field name="scheduled_date_end"/><br/>
+                        </div>
+                        <div class="oe_kanban_bottom_right">
+                            <img t-att-src="kanban_image('res.users', 'image_small', record.user_id)" t-att-title="record.user_id" width="24" height="24" class="oe_kanban_avatar pull-right"/>
+                        </div>
+                        <div class="oe_clear"></div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
 </data>
 </openerp>
