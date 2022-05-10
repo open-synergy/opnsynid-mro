@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2019 OpenSynergy Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <openerp>
 <data>
 <record id="mro_operation_maintenance_type_view_search" model="ir.ui.view">
@@ -9,9 +8,9 @@
     <field name="model">mro.operation_maintenance_type</field>
     <field name="arch" type="xml">
         <search>
-            <field name="name"/>
-            <field name="code"/>
-            <field name="kind"/>
+            <field name="name" />
+            <field name="code" />
+            <field name="kind" />
         </search>
     </field>
 </record>
@@ -21,9 +20,9 @@
     <field name="model">mro.operation_maintenance_type</field>
     <field name="arch" type="xml">
         <tree>
-            <field name="name"/>
-            <field name="code"/>
-            <field name="kind"/>
+            <field name="name" />
+            <field name="code" />
+            <field name="kind" />
         </tree>
     </field>
 </record>
@@ -33,24 +32,36 @@
     <field name="model">mro.operation_maintenance_type</field>
     <field name="arch" type="xml">
         <form>
-            <header/>
+            <header />
             <group name="group_1" colspan="4" col="2">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="active"/>
-                <field name="kind"/>
+                <field name="name" />
+                <field name="code" />
+                <field name="active" />
+                <field name="kind" />
             </group>
             <notebook>
                 <page name="workflow_policy" string="Workflow Policy">
                     <group name="workflow_policy_1" colspan="4" col="2">
-                        <field name="mro_maintenance_start_grp_ids" widget="many2many_tags"/>
-                        <field name="mro_maintenance_done_grp_ids" widget="many2many_tags"/>
-                        <field name="mro_maintenance_cancel_grp_ids" widget="many2many_tags"/>
-                        <field name="mro_maintenance_restart_grp_ids" widget="many2many_tags"/>
+                        <field
+                                    name="mro_maintenance_start_grp_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="mro_maintenance_done_grp_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="mro_maintenance_cancel_grp_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="mro_maintenance_restart_grp_ids"
+                                    widget="many2many_tags"
+                                />
                     </group>
                 </page>
                 <page name="note" string="Note">
-                    <field name="note" nolabel="1" colspan="4"/>
+                    <field name="note" nolabel="1" colspan="4" />
                 </page>
             </notebook>
         </form>
@@ -66,12 +77,12 @@
 </record>
 
 <menuitem
-    id="mro_operation_maintenance_type_menu"
-    name="Maintenance Types"
-    parent="mro_configuration_menu"
-    action="mro_operation_maintenance_type_action"
-    sequence="3"
-    />
+            id="mro_operation_maintenance_type_menu"
+            name="Maintenance Types"
+            parent="mro_configuration_menu"
+            action="mro_operation_maintenance_type_action"
+            sequence="3"
+        />
 
 </data>
 </openerp>
